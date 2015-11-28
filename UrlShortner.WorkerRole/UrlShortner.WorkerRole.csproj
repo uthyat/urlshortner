@@ -115,9 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Controllers\UrlController.cs" />
-    <Compile Include="App\Controllers\ValuesController.cs" />
+    <Compile Include="App\Controllers\RedirectUrlController.cs" />
     <Compile Include="App\Store\UrlStore.cs" />
     <Compile Include="App\Utility\ComputeHash.cs" />
+    <Compile Include="App\Utility\HostResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\Startup.cs" />
     <Compile Include="WorkerRole.cs" />

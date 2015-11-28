@@ -36,8 +36,8 @@ namespace UrlShortner.WorkerRole.App
 
             httpConfiguration.Routes.MapHttpRoute(
                 name: "Default",
-                routeTemplate: "{id}",
-                defaults: new { controller = "Values" }
+                routeTemplate: "{hashId}",
+                defaults: new { controller = "RedirectUrl" }
                 );
 
             app.UseWebApi(httpConfiguration);  

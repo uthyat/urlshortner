@@ -5,6 +5,7 @@ using System.Threading;
 using Microsoft.Owin.Hosting;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using UrlShortner.WorkerRole.App;
+using UrlShortner.WorkerRole.App.Utility;
 
 namespace UrlShortner.WorkerRole
 {
@@ -15,11 +16,8 @@ namespace UrlShortner.WorkerRole
         public override bool OnStart()
         {
             ServicePointManager.DefaultConnectionLimit = 12;
-
-            RoleInstanceEndpoint endPoint = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["EndPoint1"];
-
-            // string.Format alternative.
-            string baseUri = $"{endPoint.Protocol}://{endPoint.IPEndpoint}";
+            
+            string baseUri = HostResolver.GetBaseUri();
 
             Trace.TraceInformation($"Starting OWIN at: {baseUri}", "Information");
 
