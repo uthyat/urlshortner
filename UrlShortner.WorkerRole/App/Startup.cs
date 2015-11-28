@@ -30,11 +30,17 @@ namespace UrlShortner.WorkerRole.App
             httpConfiguration.MapHttpAttributeRoutes();
             httpConfiguration.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                routeTemplate: "api/{controller}/{url}",
+                defaults: new { url = RouteParameter.Optional }
+                );
 
-            app.UseWebApi(httpConfiguration);
+            httpConfiguration.Routes.MapHttpRoute(
+                name: "Default",
+                routeTemplate: "{id}",
+                defaults: new { controller = "Values" }
+                );
+
+            app.UseWebApi(httpConfiguration);  
 
             // Make ./public the default root of the static files in our Web Application.
             app.UseFileServer(new FileServerOptions

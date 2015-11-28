@@ -1,19 +1,18 @@
 ﻿using System.Collections.Concurrent;
 using System.Web.Http;
+using UrlShortner.WorkerRole.App.Store;
 using UrlShortner.WorkerRole.App.Utility;
 
 namespace UrlShortner.WorkerRole.App.Controllers
 {
     public class UrlController : ApiController
     {
-        private readonly static ConcurrentDictionary<string, string> Dictionary = 
-            new ConcurrentDictionary<string, string>();
 
-        public IHttpActionResult GetUrl(string id)
+        public IHttpActionResult GetUrl(string url)
         {
-            string urlHash = ComputeHash.GetHashString(id);
+            string urlHash = ComputeHash.GetHashString(url);
 
-            bool isAdded = Dictionary.TryAdd(urlHash, id);
+            bool isAdded = UrlStore.Instance.Dictionary.TryAdd(urlHash, url);
 
             return Ok(urlHash);
         }
