@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="UrlShortner.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="UrlShortner.WorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=krishnasdeployment;AccountKey=rYkdMremrwrjKLNch3tMUL0S4+VAVQGRfD+s4JmrOCuvCGV9jHkNrVOL8nr2EQflujvCpcjl1ARCFEYv6MbT+g==" />
+      <Setting name="HostName" value="http://urlshortner.cloudapp.net"/>
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
