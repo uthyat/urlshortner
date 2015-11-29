@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.ServiceRuntime;
+using System.Net;
 
 namespace UrlShortner.WorkerRole.App.Utility
 {
@@ -14,10 +15,15 @@ namespace UrlShortner.WorkerRole.App.Utility
 
         public static string GetShortUrl(string urlHash)
         {
-            RoleInstanceEndpoint endPoint = HostResolver.EndPoint;
+            string hostName = RoleEnvironment.GetConfigurationSettingValue("HostName");
+
+            if (string.IsNullOrWhiteSpace(hostName))
+            {
+                hostName = GetBaseUri();
+            }
 
             // string.Format alternative.
-            return $"{endPoint.Protocol}://{endPoint.IPEndpoint.Address}/{urlHash}";
+            return $"{hostName}/r/{urlHash}";
         }
 
         public static string GetBaseUri()

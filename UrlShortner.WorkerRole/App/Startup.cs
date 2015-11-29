@@ -30,13 +30,12 @@ namespace UrlShortner.WorkerRole.App
             httpConfiguration.MapHttpAttributeRoutes();
             httpConfiguration.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{url}",
-                defaults: new { url = RouteParameter.Optional }
+                routeTemplate: "api/{controller}"                
                 );
 
             httpConfiguration.Routes.MapHttpRoute(
                 name: "Default",
-                routeTemplate: "{hashId}",
+                routeTemplate: "r/{hashId}",
                 defaults: new { controller = "RedirectUrl" }
                 );
 

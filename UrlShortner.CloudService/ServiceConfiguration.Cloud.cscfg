@@ -4,6 +4,7 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=krishnasdeployment;AccountKey=rYkdMremrwrjKLNch3tMUL0S4+VAVQGRfD+s4JmrOCuvCGV9jHkNrVOL8nr2EQflujvCpcjl1ARCFEYv6MbT+g==" />
+      <Setting name="HostName" value="http://urlshortner.cloudapp.net"/>
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

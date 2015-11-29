@@ -6,7 +6,7 @@ namespace UrlShortner.WorkerRole.App.Controllers
 {
     public class UrlController : ApiController
     {
-        public IHttpActionResult GetUrl(string url)
+        public IHttpActionResult Post([FromBody]string url)
         {
             string urlHash = ComputeHash.GetHashString(url);
 
